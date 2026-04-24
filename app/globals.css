@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --black-obsidian: #050505;
+  --burgundy: #800020;
+  --burgundy-light: #9e1b32;
+  --axis-gold: #CFB53B;
+  --axis-gold-muted: #a68b2e;
+  
+  --text-primary: #f5f0e8;
+  --text-secondary: #b8b0a0;
+  --text-muted: #6b6560;
+  
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--black-obsidian);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+.font-cinzel { font-family: var(--font-cinzel), serif; }
+.font-playfair { font-family: var(--font-playfair), serif; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--black-obsidian); }
+::-webkit-scrollbar-thumb { 
+  background: var(--burgundy);
+  border-radius: 10px;
+}
+
+/* Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s var(--transition-smooth);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gold-glow {
+  filter: drop-shadow(0 0 15px rgba(207, 181, 59, 0.15));
+}
+
+.burgundy-glow {
+  filter: drop-shadow(0 0 20px rgba(128, 0, 32, 0.2));
+}
