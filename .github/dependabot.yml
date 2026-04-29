@@ -1,37 +1,28 @@
 version: 2
 updates:
-  # Gestão de dependências do ecossistema principal (ex: npm, pip, go)
-  - package-ecosystem: "npm" # Altere para seu ecossistema (pip, cargo, docker, etc)
+  # Gestão de dependências (exemplo com NPM)
+  - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
       day: "monday"
       time: "09:00"
       timezone: "America/Asuncion"
-    open-pull-requests-limit: 5
-    labels:
-      - "security"
-      - "dependencies"
-    # Agrupamento para evitar múltiplos PRs fragmentados
+    open-pull-requests-limit: 10
+    
+    # Agrupamento correto para evitar poluição no histórico de Commits
     groups:
-      production-dependencies:
+      dependencies:
+        applies-to: version-updates
         patterns:
           - "*"
-        exclude-patterns:
-          - "dev-*"
 
-  # Monitoramento de atualizações das GitHub Actions
+    labels:
+      - "security"
+      - "automation"
+
+  # Monitoramento de GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "monthly"# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
-
-version: 2
-updates:
-  - package-ecosystem: "" # See documentation for possible values
-    directory: "/" # Location of package manifests
-    schedule:
-      interval: "weekly"
+      interval: "monthly"
